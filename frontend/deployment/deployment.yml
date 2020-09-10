@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piglatin-frontend
+  labels:
+    app: piglatin-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: piglatin-frontend
+  template:
+    metadata:
+      labels:
+        app: piglatin-frontend
+    spec:
+      containers:
+      - name: piglatin-frontend
+        image: harithj/piglatin-frontend
+        ports:
+        - containerPort: 80

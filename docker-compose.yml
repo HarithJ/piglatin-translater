@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: deployment/Dockerfile
+    ports:
+      - "5000:80"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: deployment/Dockerfile
+    ports:
+      - "8080:8080"
+    command: waitress-serve --call app:create_app

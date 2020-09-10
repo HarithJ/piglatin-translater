@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piglatin-api
+  labels:
+    app: piglatin-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: piglatin-api
+  template:
+    metadata:
+      labels:
+        app: piglatin-api
+    spec:
+      containers:
+      - name: piglatin-api
+        image: harithj/piglatin-api
+        command: ["waitress-serve"]
+        args: ["--call", "app:create_app"]
+        ports:
+        - containerPort: 8080
