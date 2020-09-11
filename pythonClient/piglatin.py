@@ -9,7 +9,7 @@ print("\n")
 engText = input("Please enter English text: ")
 print("\n")
 
-url = os.getenv(TRANS_URL, 'http://127.0.0.1:5000/translate')
+url = os.getenv(TRANS_URL, 'http://127.0.0.1:8080/translate')
 engTextObject = {'engText': engText}
 
 response = requests.post(url, json = engTextObject)

@@ -3,16 +3,13 @@ from flask_cors import CORS
 
 from translater.pig_latin import translateStringToPigLatin
 
-app = Flask(__name__)
-CORS(app)
-
 def create_app(test_config=None):
     app = Flask(__name__)
     CORS(app)
 
     @app.route('/')
     def hello_world():
-        return {"helllo": "world"}
+        return {"Greetings": "Hello, World!"}
 
     @app.route('/translate', methods=['POST'])
     def translate():
